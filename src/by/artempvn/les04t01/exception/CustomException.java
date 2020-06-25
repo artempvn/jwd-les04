@@ -1,4 +1,4 @@
-package by.artempvn.les04.task01.exception;
+package by.artempvn.les04t01.exception;
 
 public class CustomException extends Exception {
 
