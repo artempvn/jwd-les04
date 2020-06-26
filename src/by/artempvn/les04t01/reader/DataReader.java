@@ -25,7 +25,7 @@ public class DataReader {
 		} catch (IOException ex) {
 			throw new CustomException("Error: could't open data file.", ex);
 		}
-		String data=String.join(DELIMITER, strings);
+		String data = String.join(DELIMITER, strings);
 		if (data.isEmpty()) {
 			throw new CustomException("Data is empty");
 		}

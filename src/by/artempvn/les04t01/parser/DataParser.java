@@ -2,7 +2,6 @@ package by.artempvn.les04t01.parser;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import by.artempvn.les04t01.exception.CustomException;
 
 public class DataParser {

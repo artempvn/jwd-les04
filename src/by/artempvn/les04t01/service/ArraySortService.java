@@ -4,10 +4,12 @@ import by.artempvn.les04t01.entity.CustomArray;
 import by.artempvn.les04t01.exception.CustomException;
 
 public class ArraySortService {
-	// TODO check nullPointerEx
 
 	private void bubbleSortUtil(CustomArray array, int leftBorder,
-			int rightBorder, boolean isRefersed) {
+			int rightBorder, boolean isRefersed) throws CustomException {
+		if (array == null) {
+			throw new CustomException("Incorrect input (null)");
+		}
 		try {
 			if (isRefersed == false) {
 				for (int i = leftBorder; i < rightBorder; i++) {
@@ -71,5 +73,4 @@ public class ArraySortService {
 			leftBorder++;
 		}
 	}
-
 }

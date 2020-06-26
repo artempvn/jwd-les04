@@ -2,7 +2,6 @@ package test.artempvn.les04t01.parser;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;

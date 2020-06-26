@@ -56,5 +56,4 @@ public class ArrayMarker {
 		return String.format("ArrayMarker [value=%s, startPosition=%s]", value,
 				startPosition);
 	}
-
 }

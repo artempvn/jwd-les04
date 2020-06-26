@@ -17,6 +17,21 @@ public class ArrayFillerTest {
 	ArrayFiller arrayFiller;
 	CustomArray array;
 
+	private boolean checkRandomValue(int maxRandomNumber) {
+		boolean actual = true;
+		for (int i = 0; i < array.getLength(); i++) {
+			try {
+				if (array.getElement(i) >= maxRandomNumber
+						|| array.getElement(i) < 0) {
+					actual = false;
+				}
+			} catch (CustomException e) {
+				// exception is impossible in this method
+			}
+		}
+		return actual;
+	}
+
 	@BeforeClass
 	public void setUp() {
 		arrayFiller = new ArrayFiller();
@@ -30,22 +45,13 @@ public class ArrayFillerTest {
 	@Test
 	public void fillRandomTestPositive() {
 		boolean actual = true;
-		final int maxRandonNumber = 10;
+		final int maxRandomNumber = 10;
 		try {
-			arrayFiller.fillRandom(array, maxRandonNumber);
+			arrayFiller.fillRandom(array, maxRandomNumber);
 		} catch (CustomException e) {
 			fail("exception occurred");
 		}
-		for (int i = 0; i < array.getLength(); i++) {
-			try {
-				if (array.getElement(i) >= maxRandonNumber
-						|| array.getElement(i) < 0) {
-					actual = false;
-				}
-			} catch (CustomException e) {
-				// exception is impossible in this method
-			}
-		}
+		actual = checkRandomValue(maxRandomNumber);
 		assertTrue(actual, " Test failed as...");
 	}
 
@@ -72,7 +78,7 @@ public class ArrayFillerTest {
 				{ "0 1 2 3 4 5", 5 } };
 	}
 
-	@Test(dataProvider = "fillFromStringTestNegative",
+	@Test(dataProvider = "fillFromStringTestNegative", 
 			expectedExceptions = CustomException.class)
 	public void fillFromStringTestNegative(String input, CustomArray someArray)
 			throws CustomException {

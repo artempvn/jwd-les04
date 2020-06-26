@@ -9,17 +9,22 @@ public class ArrayUtilService {
 		if (array == null) {
 			throw new CustomException("Incorrect input (null)");
 		}
-		int min = Integer.MAX_VALUE;
-		int index = 0;
-		try {
-			for (int i = 0; i < array.getLength(); i++) {
-				if (min > array.getElement(i)) {
-					min = array.getElement(i);
-					index = i;
+		int index;
+		if (array.getLength() == 0) {
+			index = -1;
+		} else {
+			int min = Integer.MAX_VALUE;
+			index = 0;
+			try {
+				for (int i = 0; i < array.getLength(); i++) {
+					if (min > array.getElement(i)) {
+						min = array.getElement(i);
+						index = i;
+					}
 				}
+			} catch (CustomException ex) {
+				// exception is impossible in this method
 			}
-		} catch (CustomException ex) {
-			// exception is impossible in this method
 		}
 		return index;
 	}
@@ -29,17 +34,22 @@ public class ArrayUtilService {
 		if (array == null) {
 			throw new CustomException("Incorrect input (null)");
 		}
-		int min = Integer.MAX_VALUE;
-		int index = 0;
-		try {
-			for (int i = leftBorder; i < array.getLength(); i++) {
-				if (min > array.getElement(i)) {
-					min = array.getElement(i);
-					index = i;
+		int index;
+		if (array.getLength() == 0) {
+			index = -1;
+		} else {
+			int min = Integer.MAX_VALUE;
+			index = 0;
+			try {
+				for (int i = leftBorder; i < array.getLength(); i++) {
+					if (min > array.getElement(i)) {
+						min = array.getElement(i);
+						index = i;
+					}
 				}
+			} catch (CustomException ex) {
+				// exception is impossible in this method
 			}
-		} catch (CustomException ex) {
-			// exception is impossible in this method
 		}
 		return index;
 	}
@@ -48,37 +58,22 @@ public class ArrayUtilService {
 		if (array == null) {
 			throw new CustomException("Incorrect input (null)");
 		}
-		int max = Integer.MIN_VALUE;
-		int index = 0;
-		try {
-			for (int i = 0; i < array.getLength(); i++) {
-				if (max < array.getElement(i)) {
-					max = array.getElement(i);
-					index = i;
+		int index;
+		if (array.getLength() == 0) {
+			index = -1;
+		} else {
+			int max = Integer.MIN_VALUE;
+			index = 0;
+			try {
+				for (int i = 0; i < array.getLength(); i++) {
+					if (max < array.getElement(i)) {
+						max = array.getElement(i);
+						index = i;
+					}
 				}
+			} catch (CustomException ex) {
+				// exception is impossible in this method
 			}
-		} catch (CustomException ex) {
-			// exception is impossible in this method
-		}
-		return index;
-	}
-
-	public int findIndexOfMax(CustomArray array, int leftBorder)
-			throws CustomException {
-		if (array == null) {
-			throw new CustomException("Incorrect input (null)");
-		}
-		int max = Integer.MIN_VALUE;
-		int index = 0;
-		try {
-			for (int i = leftBorder; i < array.getLength(); i++) {
-				if (max < array.getElement(i)) {
-					max = array.getElement(i);
-					index = i;
-				}
-			}
-		} catch (CustomException ex) {
-			// exception is impossible in this method
 		}
 		return index;
 	}
@@ -124,7 +119,7 @@ public class ArrayUtilService {
 	 * with switch/case/enum could be seen in
 	 * by.artempvn.les04t02.service.JaggedArrayService
 	 */
-	public CustomArray getSpecificNumber(CustomArray array,
+	public CustomArray findSpecificNumber(CustomArray array,
 			boolean getFibonacci, boolean getPrime, boolean getUniqueDigits,
 			int numberOfDigits) throws CustomException {
 		if (array == null) {

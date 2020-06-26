@@ -41,25 +41,6 @@ public class NumberService {
 		return isFibonacciNumber;
 	}
 
-	public boolean isNumberSomeCondition(int number, boolean isFibonacci,
-			boolean isPrime, boolean isUniqueDigits, int numberOfDigits) {
-		boolean isCompareCondition = false;
-		if (isFibonacci || isPrime || isUniqueDigits || numberOfDigits > 0) {
-			boolean conditionFibonacci = isFibonacci ? isFibonacciNumber(number)
-					: true;
-			boolean conditionPrime = isPrime ? isPrimeNumber(number) : true;
-			boolean conditionUniqueDigits = isUniqueDigits
-					? hasNumberUniqueDigits(number)
-					: true;
-			boolean conditionNumberOfDigits = numberOfDigits > 0
-					? hasNumberRequiredLength(number, numberOfDigits)
-					: true;
-			isCompareCondition = (conditionFibonacci && conditionPrime
-					&& conditionUniqueDigits && conditionNumberOfDigits);
-		}
-		return isCompareCondition;
-	}
-
 	public boolean hasNumberUniqueDigits(int number) {
 		boolean hasNumberUniqueDigits = true;
 		char[] charDigits = Integer.toString(number).toCharArray();
@@ -77,5 +58,24 @@ public class NumberService {
 
 	public boolean hasNumberRequiredLength(int number, int length) {
 		return (Integer.toString(number).length() == length);
+	}
+
+	public boolean isNumberSomeCondition(int number, boolean isFibonacci,
+			boolean isPrime, boolean isUniqueDigits, int numberOfDigits) {
+		boolean isCompareCondition = false;
+		if (isFibonacci || isPrime || isUniqueDigits || numberOfDigits > 0) {
+			boolean conditionFibonacci = isFibonacci ? isFibonacciNumber(number)
+					: true;
+			boolean conditionPrime = isPrime ? isPrimeNumber(number) : true;
+			boolean conditionUniqueDigits = isUniqueDigits
+					? hasNumberUniqueDigits(number)
+					: true;
+			boolean conditionNumberOfDigits = numberOfDigits > 0
+					? hasNumberRequiredLength(number, numberOfDigits)
+					: true;
+			isCompareCondition = (conditionFibonacci && conditionPrime
+					&& conditionUniqueDigits && conditionNumberOfDigits);
+		}
+		return isCompareCondition;
 	}
 }

@@ -42,7 +42,7 @@ public class JaggedArrayService {
 		ArrayMarkerService arrayMarkerService = new ArrayMarkerService();
 		arrayMarkerService.bubbleSort(rowValue);
 		if (isReversed) {
-			arrayMarkerService.reverse(rowValue);
+			rowValue = arrayMarkerService.reverse(rowValue);
 		}
 		for (int i = 0; i < sortedRows.length; i++) {
 			sortedRows[i] = jaggedArray[rowValue[i].getStartPosition()];

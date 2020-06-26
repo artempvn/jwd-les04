@@ -6,7 +6,6 @@ import by.artempvn.les04t01.validator.ArrayCheck;
 
 public class CustomArray {
 
-	private static final String ARRAY_STRING_DELIMITER = ", ";
 	private static final int DEFAULT_ARRAY_LENGTH = 5;
 	private static final int MIN_ARRAY_LENGTH = 0;
 
@@ -77,15 +76,6 @@ public class CustomArray {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		StringBuilder builderArray = new StringBuilder();
-		for (int i = 0; i < array.length - 1; i++) {
-			builderArray.append(array[i]).append(ARRAY_STRING_DELIMITER);
-		}
-		builderArray.append(array[array.length - 1]);
-		builder.append("CustomArray [array=");
-		builder.append(builderArray);
-		builder.append("]");
-		return builder.toString();
+		return String.format("CustomArray [array=%s]", Arrays.toString(array));
 	}
 }

@@ -6,9 +6,6 @@ import by.artempvn.les04t02.entity.ArrayMarker;
 public class ArrayMarkerService {
 
 	private boolean isSorted(ArrayMarker[] array) throws CustomException {
-		if (array == null) {
-			throw new CustomException("Incorrect input (null)");
-		}
 		boolean isSorted = true;
 		int i = 0;
 		while (isSorted && i < array.length - 1) {
@@ -36,7 +33,7 @@ public class ArrayMarkerService {
 		}
 	}
 
-	public void reverse(ArrayMarker[] array) throws CustomException {
+	public ArrayMarker[] reverse(ArrayMarker[] array) throws CustomException {
 		if (array == null) {
 			throw new CustomException("Incorrect input (null)");
 		}
@@ -44,6 +41,6 @@ public class ArrayMarkerService {
 		for (int i = 0, j = array.length - 1; i < array.length; i++, j--) {
 			reversedArray[j] = array[i];
 		}
-		System.arraycopy(reversedArray, 0, array, 0, array.length);
+		return reversedArray;
 	}
 }
